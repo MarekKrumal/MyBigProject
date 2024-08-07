@@ -2,7 +2,6 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { auth } from "../firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
 
-// Správně použijte createContext
 const AuthContext = createContext();
 
 export function AuthContextProvider({ children }) {
@@ -28,7 +27,7 @@ export function AuthContextProvider({ children }) {
         return () => {
             unsubscribe();
         };
-    }, []); // Přidejte prázdné pole závislostí, aby se efekt spustil pouze jednou
+    }, []);
 
     return (
         <AuthContext.Provider value={{ signUp, logIn, logOut, user }}>
